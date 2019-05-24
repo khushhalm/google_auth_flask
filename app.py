@@ -1,12 +1,12 @@
 from functools import wraps
 import json
-import os
+#import os
 
 from flask import Flask, redirect
 
-from authlib.client import OAuth2Session
-import google.oauth2.credentials
-import googleapiclient.discovery
+#from authlib.client import OAuth2Session
+#import google.oauth2.credentials
+#import googleapiclient.discovery
 
 import google_auth
 
@@ -39,10 +39,6 @@ def index():
         return '<div>You are currently logged in as ' + user_info['given_name'] + '<div><pre>' + json.dumps(user_info, indent=4) + "</pre>"
 
     return 'You are not currently logged in.'
-    """
-    user_info = google_auth.get_user_info()
-    return '<div>You are currently logged in as ' + user_info['given_name'] + '<div><pre>' + json.dumps(user_info, indent=4) + "</pre>"
-    """
 
 @app.route('/faltu')
 @login_req

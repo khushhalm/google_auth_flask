@@ -67,7 +67,8 @@ def login():
                             scope=AUTHORIZATION_SCOPE,
                             redirect_uri=AUTH_REDIRECT_URI)
   
-    uri, state = session.authorization_url(AUTHORIZATION_URL)
+    #uri, state = session.authorization_url(AUTHORIZATION_URL)
+    uri, state = session.create_authorization_url(AUTHORIZATION_URL)
 
     flask.session[AUTH_STATE_KEY] = state
     flask.session.permanent = True
