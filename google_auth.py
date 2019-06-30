@@ -68,7 +68,8 @@ def login():
                             redirect_uri=AUTH_REDIRECT_URI)
   
     #uri, state = session.authorization_url(AUTHORIZATION_URL)
-    uri, state = session.create_authorization_url(AUTHORIZATION_URL)
+    #change abc.com to your domain name, it'll restrict access to those mail ids only then
+    uri, state = session.create_authorization_url(AUTHORIZATION_URL, hd = 'abc.com')
 
     flask.session[AUTH_STATE_KEY] = state
     flask.session.permanent = True
